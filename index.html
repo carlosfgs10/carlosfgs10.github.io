@@ -116,11 +116,6 @@
     
     .btn.primary:hover {
       box-shadow: var(--shadow);
-      background: linear-gradient(
-        180deg,
-        rgba(79, 143, 106, 1),
-        rgba(79, 143, 106, 0.9)
-      );
     }
     
     .row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 14px; }
@@ -139,7 +134,18 @@
     footer { margin-top: 18px; font-size: 12px; color: var(--muted); }
     footer a { color: inherit; }
 
-    .logo { display: block; max-widht: 180px; width: 100%; height: auto; margin: 6px 0 10px; }
+    .logo {
+      display: block;  
+      width: 96px; 
+      height: auto; 
+      margin: 6px 0 10px;
+      opacity:.98;
+    }
+    @media (max-width:820px){
+      .logo{
+        width:84px;
+      }
+    }
 
   </style>
 </head>
