@@ -117,6 +117,18 @@
     .btn.primary:hover {
       box-shadow: var(--shadow);
     }
+
+    .btn.ghost{
+      background: rgba(255,255,255,0.55);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-weight: 700;
+    }
+    .btn.ghost:hover{
+      background: #fff;
+    }
+
+
     
     .row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 14px; }
     @media (max-width: 820px) {
@@ -147,39 +159,62 @@
       }
     }
 
+    .sub-links{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .sub-links a{
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(71,85,105,.45);
+    }
+    .sub-links a:hover{
+      color: var(--text);
+      border-bottom-color: rgba(15,23,42,.35);
+    }
+
   </style>
 </head>
 
 <body>
   <main class="wrap">
     <section class="card">
-      <div class="small">Belo Horizonte • Barro Preto</div>
 
       <img src="logo.png" alt="Óptica Centro Multifocal" class="logo" />
       
       <h1>Óptica <span class="brand">Centro Multifocal</span></h1>
-      <h2>Especialistas em lentes multifocais com medição precisa e ajuste profissional.</h2>
+      <h2>Especialistas em lentes multifocais e óculos de grau, com medição precisa e acompanhamento.</h2>
 
       <div class="btns">
-        <a class="btn primary" href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista%20da%20%C3%93ptica%20Centro%20Multifocal." target="_blank" rel="noopener">Falar com especialista no WhatsApp</a>
-        <a class="btn" href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Como chegar (Google Maps)</a>
+        <a class="btn primary" href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista%20da%20%C3%93ptica%20Centro%20Multifocal." target="_blank" rel="noopener">
+          Falar com atendente no WhatsApp
+        </a>
       </div>
 
-      <div class="small">
-        Rua Juiz de Fora, 84 — Barro Preto, Belo Horizonte — MG • Seg–Sex 9h–17h • Sáb 9h–12h
+      
+      <div class="sub-links">
+        <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D">
+          Ver avaliações no Google
+        </a>
+        <span>·</span>
+        <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+          Como chegar
+        </a>
       </div>
+
     </section>
 
     <section class="row">
       <section class="card">
         <h3>Quem somos</h3>
-        <p>
-          A Óptica Centro Multifocal fica no bairro Barro Preto, em Belo Horizonte, e é especializada em lentes multifocais e óculos de grau.
-          
-          Nosso diferencial é a medição precisa e a orientação personalizada, para garantir conforto, adaptação e qualidade visual no dia a dia.
-          
-          Acompanhamos cada cliente desde a escolha da armação até os ajustes finais após a entrega.
-        </p>
+        <p>A Óptica Centro Multifocal fica no bairro Barro Preto, em Belo Horizonte, e é especializada em lentes multifocais e óculos de grau.</p>  
+        <p>Nosso diferencial é a medição precisa e a orientação personalizada, para garantir conforto, adaptação e qualidade visual no dia a dia.</p>
+        <p>Acompanhamos cada cliente desde a escolha da armação até os ajustes finais após a entrega.</p>
 
         <div class="divider"></div>
 
@@ -210,7 +245,7 @@
         <span class="small">— Avaliação no Google</span></p>
         
         <div class="btns">
-          <a class="btn" href="https://www.google.com/gasearch?q=centro%20multifocal&source=sh/x/gs/m2/5#lkt=LocalPoiReviews&rlimm=10122397012317673995">
+          <a class="btn" href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D">
             Ver avaliações no Google
           </a>
         </div>
@@ -237,26 +272,32 @@
       </iframe>
 
       <div class="btns">
-        <a class="btn" href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Abrir no Google Maps</a>
-        <a class="btn primary" href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20saber%20sobre%20lentes%20multifocais%20e%20agendar%20um%20atendimento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn ghost" href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+          Abrir no Google Maps
+        </a>
       </div>
     </section>
 
     <section class="card">
-      <h3>Falar com </h3>
-      <p>Quer tirar dúvidas ou pedir um orçamento? Fale agora com um  pelo WhatsApp.</p>
+      <h3>Falar com atendente</h3>
+      <p>Quer tirar dúvidas ou pedir um orçamento? Fale agora com um atendente pelo WhatsApp.</p>
       <div class="btns">
-        <a class="btn primary" href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20%20da%20%C3%93ptica%20Centro%20Multifocal." target="_blank" rel="noopener">Falar com  no WhatsApp</a>
+        <a class="btn primary" href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20%20da%20%C3%93ptica%20Centro%20Multifocal." target="_blank" rel="noopener">
+          Chamar no WhatsApp</a>
       </div>
 
       <details>
         <summary>Política de privacidade (resumo)</summary>
         <p class="small">
-          Usamos as informações que você nos envia (ex.: nome, telefone e mensagem no WhatsApp) apenas para atender sua solicitação,
-          responder dúvidas e dar suporte ao orçamento/atendimento. Não vendemos seus dados. Se quiser solicitar correção ou exclusão
-          de informações, basta pedir pelo WhatsApp.
+          As informações que você nos envia (como nome, telefone e mensagem pelo WhatsApp) são utilizadas
+          exclusivamente para responder sua solicitação, tirar dúvidas e prestar atendimento ou orçamento.
+          <br><br>
+          Não compartilhamos nem vendemos seus dados a terceiros.
+          <br><br>
+          Caso queira solicitar correção ou exclusão de informações, basta entrar em contato conosco pelo WhatsApp.
         </p>
       </details>
+
 
       <footer>
         Óptica Centro Multifocal • Rua Juiz de Fora, 84 — Barro Preto, Belo Horizonte — MG • WhatsApp: (31) 93618-1679<br/>
