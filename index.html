@@ -91,19 +91,27 @@
   <!-- Styles -->
   <style>
     :root{
+      /* Base */
       --bg: #ffffff;
       --page: #ffffff;
       --text: #0b1220;
       --muted: #5b677a;
       --line: rgba(15, 23, 42, 0.10);
   
+      /* Institucional */
       --brand-green:#4F8F6A;
       --brand-purple:#8B5C7E;
+  
+      /* Tints ultra suaves (estilo Varilux) */
+      --section-white: #ffffff;
+      --section-green: #f3f8f5;
+      --section-purple:#f6f2f6;
   
       --radius: 18px;
     }
   
     *{ box-sizing:border-box; }
+  
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -112,41 +120,52 @@
       line-height: 1.55;
     }
   
-    /* página “clean” com respiro */
+    /* Wrapper central */
     .wrap{
       max-width: 980px;
       margin: 0 auto;
       padding: 44px 18px 90px;
     }
   
-    /* um único “sheet” */
+    /* “Folha” única */
     .shell{
+      --shell-pad: 30px;
       background: var(--page);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 30px;
+      padding: var(--shell-pad);
     }
-    @media (max-width:820px){
-      .shell{ padding: 22px; }
-    }
-
-    .section.white { background: var(--section-white); }
-    .section.green { background: var(--section-green); }
-    .section.purple { background: var(--section-purple); }
-    
-
-
   
-    /* Seções minimalistas (sem card) */
+    @media (max-width:820px){
+      .shell{ --shell-pad: 22px; }
+    }
+  
+    /* Seções minimalistas */
     .section{
-      padding: 22px 0;
+      padding: 26px 0;
       border-top: 1px solid var(--line);
     }
+  
     .section:first-child{
       border-top: 0;
       padding-top: 0;
     }
   
+    /* Seções com fundo (full-bleed interno) */
+    .section.white,
+    .section.green,
+    .section.purple{
+      margin-left: calc(var(--shell-pad) * -1);
+      margin-right: calc(var(--shell-pad) * -1);
+      padding-left: var(--shell-pad);
+      padding-right: var(--shell-pad);
+    }
+  
+    .section.white  { background: var(--section-white); }
+    .section.green  { background: var(--section-green); }
+    .section.purple { background: var(--section-purple); }
+  
+    /* Logo */
     .logo{
       width: 84px;
       height:auto;
@@ -154,6 +173,7 @@
       display:block;
     }
   
+    /* Tipografia */
     h1{
       font-size: 42px;
       line-height: 1.05;
@@ -161,6 +181,7 @@
       letter-spacing: -0.03em;
       font-weight: 720;
     }
+  
     h1 .brand{ color: var(--brand-purple); }
   
     h2{
@@ -173,80 +194,143 @@
   
     h3{
       font-size: 16px;
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       letter-spacing: -0.01em;
       font-weight: 700;
     }
   
-    p{ margin: 10px 0; color: var(--text); }
+    p{ margin: 10px 0; }
     .small{ font-size: 13px; color: var(--muted); }
   
-    /* CTA minimalista */
-    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
+    /* CTA */
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+  
     .btn{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding: 12px 16px;
+      padding: 12px 18px;
       border-radius: 999px;
       text-decoration:none;
       font-weight: 700;
       border: 1px solid var(--line);
       color: var(--text);
       background: transparent;
+      max-width: 100%;
+      white-space: normal;
     }
+  
     .btn.primary{
       border: 0;
       color: #fff;
-      background: linear-gradient(180deg, rgba(79,143,106,.95), rgba(79,143,106,.82));
+      background: linear-gradient(
+        180deg,
+        rgba(79,143,106,.95),
+        rgba(79,143,106,.82)
+      );
     }
-    .icon{ width:18px; height:18px; display:inline-block; }
-    .btn.primary .icon{ filter: brightness(0) invert(1); }
   
-    /* Prova social discreta */
+    .icon{
+      width:18px;
+      height:18px;
+      display:inline-block;
+    }
+  
+    .btn.primary .icon{
+      filter: brightness(0) invert(1);
+    }
+  
+    /* Prova social */
     .proof{
       margin-top: 14px;
       color: var(--muted);
       font-size: 14px;
     }
+  
     .micro{
       margin-top: 6px;
       color: var(--muted);
       font-size: 13px;
     }
   
-    /* Duas colunas só onde fizer sentido */
+    /* Links do hero */
+    .sub-links{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+  
+    .sub-links a{
+      color: var(--muted);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(91,103,122,.45);
+    }
+  
+    .sub-links a:hover{
+      color: var(--text);
+      border-bottom-color: rgba(15,23,42,.25);
+    }
+  
+    /* Grid responsivo */
     .row{
       display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       gap: 20px;
       align-items:start;
     }
+  
     @media (max-width:820px){
       .row{ grid-template-columns: 1fr; }
       h1{ font-size: 34px; }
     }
   
-    ul{ margin: 8px 0 0 18px; padding:0; }
-    li{ margin: 8px 0; color: var(--text); }
+    /* Listas */
+    ul{
+      margin: 8px 0 0 18px;
+      padding:0;
+    }
   
+    li{
+      margin: 8px 0;
+    }
+  
+    /* Mapa */
     iframe{
       width:100%;
       height: 320px;
       border: 0;
       border-radius: 14px;
+      margin-top: 10px;
     }
   
-    details{ margin-top: 10px; }
-    summary{ cursor:pointer; font-weight:700; color: var(--text); }
+    /* Details */
+    details{ margin-top: 12px; }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+    }
   
+    /* Footer */
     footer{
-      margin-top: 16px;
+      margin-top: 18px;
       font-size: 12px;
       color: var(--muted);
     }
-    footer a{ color: inherit; }
+  
+    footer a{
+      color: inherit;
+    }
   </style>
+
 
   
 </head>
