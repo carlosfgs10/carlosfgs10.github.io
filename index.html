@@ -91,166 +91,141 @@
   <!-- Styles -->
   <style>
     :root{
-      color-scheme: light;
+      --bg: #ffffff;
+      --page: #ffffff;
+      --text: #0b1220;
+      --muted: #5b677a;
+      --line: rgba(15, 23, 42, 0.10);
   
       --brand-green:#4F8F6A;
       --brand-purple:#8B5C7E;
   
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#64748b;
-      --border: rgba(15, 23, 42, 0.08);
-  
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
     }
   
     *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.55;
       background: var(--bg);
       color: var(--text);
+      line-height: 1.55;
     }
   
+    /* página “clean” com respiro */
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 34px 18px 80px;
+      padding: 44px 18px 90px;
     }
   
-    /* “Card” mais premium e menos chamativo */
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
+    /* um único “sheet” */
+    .shell{
+      background: var(--page);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 22px;
-      margin: 16px 0;
-      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+    @media (max-width:820px){
+      .shell{ padding: 22px; }
     }
   
-    /* Seções sem “card” (para reduzir poluição) */
+    /* Seções minimalistas (sem card) */
     .section{
-      margin: 18px 0;
-      padding: 8px 4px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section:first-child{
+      border-top: 0;
+      padding-top: 0;
     }
   
     .logo{
-      width: 88px;
-      height: auto;
-      margin: 4px 0 10px;
+      width: 84px;
+      height:auto;
+      margin: 0 0 14px;
+      display:block;
     }
   
     h1{
-      font-size: 40px;
+      font-size: 42px;
       line-height: 1.05;
-      margin: 6px 0 10px;
+      margin: 0 0 10px;
       letter-spacing: -0.03em;
+      font-weight: 720;
     }
     h1 .brand{ color: var(--brand-purple); }
   
     h2{
       font-size: 18px;
-      margin: 0 0 16px;
+      margin: 0 0 18px;
       color: var(--muted);
-      font-weight: 500;
-      max-width: 60ch;
+      font-weight: 520;
+      max-width: 62ch;
     }
   
     h3{
-      font-size: 18px;
+      font-size: 16px;
       margin: 0 0 10px;
       letter-spacing: -0.01em;
       font-weight: 700;
     }
   
-    p{ margin: 10px 0; color: #1f2937; }
+    p{ margin: 10px 0; color: var(--text); }
     .small{ font-size: 13px; color: var(--muted); }
   
-    /* CTA mais “clean” */
-    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin: 14px 0 0; }
-  
+    /* CTA minimalista */
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
     .btn{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      text-decoration:none;
+      gap:10px;
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--text);
+      text-decoration:none;
       font-weight: 700;
-      background: #fff;
-      transition: transform .12s ease, box-shadow .12s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 20px rgba(2,6,23,.08); }
-  
-    .btn.primary{
-      border: none;
-      background: linear-gradient(180deg, rgba(79,143,106,.95), rgba(79,143,106,.85));
-      color:#fff;
-    }
-  
-    .btn.ghost{
+      border: 1px solid var(--line);
+      color: var(--text);
       background: transparent;
     }
-  
+    .btn.primary{
+      border: 0;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(79,143,106,.95), rgba(79,143,106,.82));
+    }
     .icon{ width:18px; height:18px; display:inline-block; }
     .btn.primary .icon{ filter: brightness(0) invert(1); }
   
-    /* Micro prova social mais “leve” */
+    /* Prova social discreta */
     .proof{
-      margin: 12px 0 6px;
-      font-size: 0.95rem;
-      color: #334155;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
     .micro{
-      margin: 0 0 4px;
-      font-size: 0.9rem;
+      margin-top: 6px;
       color: var(--muted);
-    }
-  
-    /* Links secundários discretos */
-    .sub-links{
-      margin-top: 10px;
       font-size: 13px;
-      color: var(--muted);
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .sub-links a{
-      color: var(--muted);
-      text-decoration:none;
-      border-bottom: 1px dashed rgba(100,116,139,.45);
-    }
-    .sub-links a:hover{
-      color: var(--text);
-      border-bottom-color: rgba(15,23,42,.25);
     }
   
-    /* Grid mais leve (sem “duas colunas pesadas”) */
+    /* Duas colunas só onde fizer sentido */
     .row{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items:start;
     }
-    @media(max-width: 820px){
+    @media (max-width:820px){
       .row{ grid-template-columns: 1fr; }
-      h1{ font-size: 32px; }
+      h1{ font-size: 34px; }
     }
   
-    /* Lista mais “clean” */
-    ul{ margin: 10px 0 0 18px; padding:0; }
-    li{ margin: 7px 0; color:#1f2937; }
+    ul{ margin: 8px 0 0 18px; padding:0; }
+    li{ margin: 8px 0; color: var(--text); }
   
-    /* Mapa: sem sombra pesada */
     iframe{
       width:100%;
-      height: 330px;
+      height: 320px;
       border: 0;
       border-radius: 14px;
     }
@@ -259,7 +234,7 @@
     summary{ cursor:pointer; font-weight:700; color: var(--text); }
   
     footer{
-      margin-top: 18px;
+      margin-top: 16px;
       font-size: 12px;
       color: var(--muted);
     }
@@ -272,138 +247,149 @@
 
 <body>
   <main class="wrap">
-    <section class="card">
-
-      <img src="logo.png" alt="Óptica Centro Multifocal" class="logo" />
-      
-      <h1>Óptica <span class="brand">Centro Multifocal</span></h1>
-      <h2>Óculos de grau e lentes multifocais com medição precisa e adaptação assistida.</h2>
-
-      <div class="btns">
-        <a class="btn primary"
-           href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista%20da%20%C3%93ptica%20Centro%20Multifocal."
-           target="_blank"
-           rel="noopener"
-           onclick="gtag('event', 'click_whatsapp', {
-             'event_category': 'engagement',
-             'event_label': 'botao_atendimento_imediato',
-             'value': 1
-           });">
-          <img src="whatsapp.svg" alt="" class="icon">
-          Atendimento imediato no WhatsApp
-        </a>
-      </div>
-
-      <p class="proof">
-        ⭐⭐⭐⭐⭐ <strong>Avaliação 5.0 no Google</strong> · Pontualidade · Preço excelente · Atendimento perfeito
-      </p>
-    
-      <p class="micro">
-        🕒 Resposta rápida em horário comercial
-      </p>
-
-
-      
-      <div class="sub-links">
-        <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D">
-          Ver avaliações no Google
-        </a>
-        <span>·</span>
-        <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-          Como chegar
-        </a>
-      </div>
-
-    </section>
-
-    <section class="row">
+    <div class="shell">
+  
+      <!-- HERO -->
       <section class="section">
-        <h3>Por que confiar</h3>
-        <ul>
-          <li>Medição feita com calma, para mais conforto no dia a dia</li>
-          <li>Orientação na escolha da armação (funcional e confortável)</li>
-          <li>Acompanhamento após a entrega para ajustes finos</li>
-          <li>Experiência com multifocal, óculos de grau e lentes ocupacionais</li>
-        </ul>
-      </section>
-    
-      <section class="card">
-        <h3>O que nossos clientes dizem</h3>
-    
-        <p><strong>★★★★★</strong><br>
-          “Ótimo atendimento, vendedor super eficiente, educado, atencioso, e honesto com os clientes.”<br>
-          <span class="small">— Avaliação no Google</span>
-        </p>
-    
-        <p><strong>★★★★★</strong><br>
-          “Qualidade da armação e lentes muito boa!”<br>
-          <span class="small">— Cliente no Google</span>
-        </p>
-    
+        <img src="logo.png" alt="Óptica Centro Multifocal" class="logo" />
+  
+        <h1>Óptica <span class="brand">Centro Multifocal</span></h1>
+        <h2>Óculos de grau e lentes multifocais com medição precisa e adaptação assistida.</h2>
+  
         <div class="btns">
-          <a class="btn" href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D">
-            Ver avaliações no Google
+          <a class="btn primary"
+             href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista%20da%20%C3%93ptica%20Centro%20Multifocal."
+             target="_blank"
+             rel="noopener"
+             onclick="gtag('event', 'click_whatsapp', {
+               'event_category': 'engagement',
+               'event_label': 'botao_atendimento_imediato',
+               'value': 1
+             });">
+            <img src="whatsapp.svg" alt="" class="icon">
+            Atendimento imediato no WhatsApp
           </a>
         </div>
-    
-        <p class="small">Trechos de avaliações públicas do Google.</p>
-      </section>
-    </section>
-
-    <section class="card">
-      <h3>Como chegar</h3>
-      <p>
-        <strong>Endereço:</strong> Rua Juiz de Fora, 84 — Barro Preto, Belo Horizonte — MG<br/>
-        <strong>Horário:</strong> Segunda à sexta-feira das 9h às 17h • Sábado das 9h às 12h
-      </p>
-
-      <iframe
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Rua%20Juiz%20de%20Fora,%2084%20-%20Barro%20Preto,%20Belo%20Horizonte%20-%20MG&output=embed">
-      </iframe>
-
-      <div class="btns">
-        <a class="btn ghost" href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-          Abrir no Google Maps
-        </a>
-      </div>
-    </section>
-
-    <section class="card">
-      <h3>Falar com atendente</h3>
-      <p>Quer tirar dúvidas ou pedir um orçamento? Fale agora com um atendente pelo WhatsApp.</p>
-      <div class="btns">
-        <a class="btn primary"
-           href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista%20da%20%C3%93ptica%20Centro%20Multifocal."
-           target="_blank" rel="noopener"
-           onclick="gtag('event','click_whatsapp',{event_category:'engagement',event_label:'botao_chamar_atendente_rodape',value:1});">
-          <img src="whatsapp.svg" alt="" class="icon">
-          Chamar atendente
-        </a>
-      </div>
-
-      <details>
-        <summary>Política de privacidade (resumo)</summary>
-        <p class="small">
-          As informações que você nos envia (como nome, telefone e mensagem pelo WhatsApp) são utilizadas
-          exclusivamente para responder sua solicitação, tirar dúvidas e prestar atendimento ou orçamento.
-          <br><br>
-          Não compartilhamos nem vendemos seus dados a terceiros.
-          <br><br>
-          Caso queira solicitar correção ou exclusão de informações, basta entrar em contato conosco pelo WhatsApp.
+  
+        <p class="proof">
+          ⭐⭐⭐⭐⭐ <strong>Avaliação 5.0 no Google</strong> · Pontualidade · Preço excelente · Atendimento perfeito
         </p>
-      </details>
-
-
-      <footer>
-        Óptica Centro Multifocal • Rua Juiz de Fora, 84 — Barro Preto, Belo Horizonte — MG • WhatsApp: (31) 93618-1679<br/>
-        <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-        Ver perfil no Google
-        </a><br/>
-        © <span id="year"></span> Óptica Centro Multifocal
-      </footer>
-    </section>
+  
+        <p class="micro">🕒 Resposta rápida em horário comercial</p>
+  
+        <div class="sub-links">
+          <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+             target="_blank" rel="noopener">
+            Ver avaliações no Google
+          </a>
+          <span>·</span>
+          <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+             target="_blank" rel="noopener">
+            Como chegar
+          </a>
+        </div>
+      </section>
+  
+      <!-- CONFIANÇA + DEPOIMENTOS -->
+      <section class="section">
+        <div class="row">
+          <div>
+            <h3>Por que confiar</h3>
+            <ul>
+              <li>Medição feita com calma, para mais conforto no dia a dia</li>
+              <li>Orientação na escolha da armação (funcional e confortável)</li>
+              <li>Acompanhamento após a entrega para ajustes finos</li>
+              <li>Experiência com multifocal, óculos de grau e lentes ocupacionais</li>
+            </ul>
+          </div>
+  
+          <div>
+            <h3>O que nossos clientes dizem</h3>
+  
+            <p><strong>★★★★★</strong><br>
+              “Ótimo atendimento, vendedor super eficiente, educado, atencioso, e honesto com os clientes.”<br>
+              <span class="small">— Avaliação no Google</span>
+            </p>
+  
+            <p><strong>★★★★★</strong><br>
+              “Qualidade da armação e lentes muito boa!”<br>
+              <span class="small">— Cliente no Google</span>
+            </p>
+  
+            <div class="btns">
+              <a class="btn"
+                 href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                 target="_blank" rel="noopener">
+                Ver avaliações no Google
+              </a>
+            </div>
+  
+            <p class="small">Trechos de avaliações públicas do Google.</p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- COMO CHEGAR -->
+      <section class="section">
+        <h3>Como chegar</h3>
+        <p class="small">
+          <strong>Endereço:</strong> Rua Juiz de Fora, 84 — Barro Preto, Belo Horizonte — MG<br />
+          <strong>Horário:</strong> Segunda à sexta-feira das 9h às 17h • Sábado das 9h às 12h
+        </p>
+  
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Rua%20Juiz%20de%20Fora,%2084%20-%20Barro%20Preto,%20Belo%20Horizonte%20-%20MG&output=embed">
+        </iframe>
+  
+        <div class="btns">
+          <a class="btn"
+             href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+             target="_blank" rel="noopener">
+            Abrir no Google Maps
+          </a>
+        </div>
+      </section>
+  
+      <!-- CTA FINAL + PRIVACIDADE + FOOTER -->
+      <section class="section">
+        <h3>Falar com atendente</h3>
+        <p>Quer tirar dúvidas ou pedir um orçamento? Fale agora pelo WhatsApp.</p>
+  
+        <div class="btns">
+          <a class="btn primary"
+             href="https://wa.me/5531936181679?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista%20da%20%C3%93ptica%20Centro%20Multifocal."
+             target="_blank" rel="noopener"
+             onclick="gtag('event','click_whatsapp',{event_category:'engagement',event_label:'botao_chamar_atendente_rodape',value:1});">
+            <img src="whatsapp.svg" alt="" class="icon">
+            Chamar atendente
+          </a>
+        </div>
+  
+        <details>
+          <summary>Política de privacidade (resumo)</summary>
+          <p class="small">
+            As informações que você nos envia (como nome, telefone e mensagem pelo WhatsApp) são utilizadas
+            exclusivamente para responder sua solicitação, tirar dúvidas e prestar atendimento ou orçamento.
+            <br><br>
+            Não compartilhamos nem vendemos seus dados a terceiros.
+            <br><br>
+            Caso queira solicitar correção ou exclusão de informações, basta entrar em contato conosco pelo WhatsApp.
+          </p>
+        </details>
+  
+        <footer>
+          Óptica Centro Multifocal • Rua Juiz de Fora, 84 — Barro Preto, Belo Horizonte — MG • WhatsApp: (31) 93618-1679<br />
+          <a href="https://www.google.com/maps/place/%C3%93ptica+Centro+Multifocal/@-19.9185817,-43.9523831,17z/data=!3m1!4b1!4m6!3m5!1s0xa6975b249384d5:0x8c79fa73b2ab9a0b!8m2!3d-19.9185817!4d-43.9523831!16s%2Fg%2F1td4968b"
+             target="_blank" rel="noopener">
+            Ver perfil no Google
+          </a><br />
+          © <span id="year"></span> Óptica Centro Multifocal
+        </footer>
+      </section>
+  
+    </div>
   </main>
 
   <script>
